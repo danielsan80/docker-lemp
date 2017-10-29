@@ -41,7 +41,6 @@ services:
       - mariadb
     environment:
       - PMA_HOST=mariadb
-      - PMA_PORT=3307
   # memcached:
   #   image: memcached:latest
   #   volumes:
