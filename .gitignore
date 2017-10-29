@@ -2,3 +2,5 @@
 docker/data/*/*
 !docker/data/*/.gitkeep
 .env
+.idea
+web

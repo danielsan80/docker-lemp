@@ -16,7 +16,7 @@ services:
       - ./:/var/www/app
   php:
     #build: ./docker/php/7.1-fpm
-    image: matiux/php7.1-fpm-debian-buster:7.1
+    image: matiux/php7-fpm-nginx:7.1
     volumes:
       - ./:/var/www/app
     environment:
