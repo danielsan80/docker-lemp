@@ -12,7 +12,7 @@
 *https://docs.docker.com/engine/reference/builder/#using-arg-variables
 
 #### Comandi utili
-* Collegary a mysql: `mycli -uroot -ppassword -h localhost`
+* Collegary a mysql: `mycli -uroot -ppwd -h localhost -P3307`
 * Purge all: `docker rm $(docker ps -a -q) && docker rmi $(docker images -q)`
 * Spin down any running containers: `./dc down`
 * Rebuild the image to suck in latest `start-container` file: `./dc build`
