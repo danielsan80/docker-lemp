@@ -1,4 +1,4 @@
-#Ambiente LEMP per applicazioni PHP standard
+# Ambiente LEMP per applicazioni PHP standard
 
 #### Pull e push
 * Creare il repo su docker hub
@@ -12,6 +12,7 @@
 *https://docs.docker.com/engine/reference/builder/#using-arg-variables
 
 #### Comandi utili
+* Entrare come utente non root: `docker exec --it --user <GID/USER> <CONTAINER_ID>`
 * Collegary a mysql: `mycli -uroot -ppwd -h localhost -P3307`
 * Purge all: `docker rm $(docker ps -a -q) && docker rmi $(docker images -q)`
 * Spin down any running containers: `./dc down`
