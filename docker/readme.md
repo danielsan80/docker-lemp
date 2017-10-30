@@ -8,8 +8,9 @@
 * Push: `docker push matiux/php7-fpm-nginx:7.1`
 
 #### Link utili:
-*https://docs.docker.com/compose/compose-file/#service-configuration-reference
-*https://docs.docker.com/engine/reference/builder/#using-arg-variables
+* https://docs.docker.com/compose/compose-file/#service-configuration-reference
+* https://docs.docker.com/engine/reference/builder/#using-arg-variables
+* https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
 #### Comandi utili
 * Entrare come utente non root: `docker exec --it --user <GID/USER> <CONTAINER_ID>`
