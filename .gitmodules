@@ -1,0 +1,6 @@
+[submodule "docker/nginx"]
+	path = docker/nginx
+	url = git@github.com:matiux/nginx.git
+[submodule "docker/php"]
+	path = docker/php
+	url = git@github.com:matiux/php7-fpm-nginx.git
