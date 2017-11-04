@@ -16,7 +16,7 @@ services:
       - ./:/var/www/app
   php:
     #build: ./docker/php/7.1-fpm
-    image: matiux/php7-fpm-nginx:7.1
+    image: matiux/php:7.1-fpm
     tty: true # -t option in docker
     stdin_open: true # -i option in docker
     volumes:
