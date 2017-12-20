@@ -16,6 +16,7 @@
 * Entrare come utente non root: `docker exec --it --user <GID/USER> <CONTAINER_ID>`
 * Collegary a mysql: `mycli -uroot -ppwd -h localhost -P3307`
 * Purge all: `docker rm $(docker ps -a -q) && docker rmi $(docker images -q)`
+* Stop di tutti i containers: `docker stop $(docker ps -a -q)`
 * Spin down any running containers: `./dc down`
 * Rebuild the image to suck in latest `start-container` file: `./dc build`
 * Turn on containers, let it use the default "local" environment - xdebug is enabled!:
