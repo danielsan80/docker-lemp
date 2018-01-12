@@ -19,6 +19,7 @@ services:
     #image: matiux/php:7.1-fpm
     tty: true # -t option in docker
     stdin_open: true # -i option in docker
+    hostname: il_tuo_host_name
     volumes:
       - ./:/var/www/app
     environment:
