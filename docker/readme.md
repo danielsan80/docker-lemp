@@ -16,7 +16,7 @@
 * Ottenere l'ip di un container: `docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomecontainer`
 * Entrare come utente non root: `docker exec --it --user <GID/USER> <CONTAINER_ID>`
 * Collegarsi a mysql con mycli: `mycli -uroot -ppwd -h localhost -P3307`
-* Collegarsi a mysql con il client mysql: `mycli -uroot -ppwd -h127.0.0.1 -P3307` (di default mysql usa Unix sockets invece di TCP. Quindi bisogna specificare l'IP per esteso e non usare "localhost" perchè lo traduce in unix socket invece di tcp/ip)
+* Collegarsi a mysql con il client mysql: `mysql -uroot -ppwd -h127.0.0.1 -P3307` (di default mysql usa Unix sockets invece di TCP. Quindi bisogna specificare l'IP per esteso e non usare "localhost" perchè lo traduce in unix socket invece di tcp/ip). In alternativa si può fare: `mysql -uroot -p -P3306 -h ip_container`
 * Purge all: `docker rm $(docker ps -a -q) && docker rmi $(docker images -q)`
 * Stop di tutti i containers: `docker stop $(docker ps -a -q)`
 * Spin down any running containers: `./dc down`
