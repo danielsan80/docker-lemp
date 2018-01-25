@@ -13,7 +13,7 @@
 * https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
 #### Comandi utili
-* Pulizia totale
+* Pulizia totale: `docker system prune -a`
 * Ottenere l'ip di un container: `docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nomecontainer`
 * Entrare come utente non root: `docker exec --it --user <GID/USER> <CONTAINER_ID>`
 * Collegarsi a mysql con mycli: `mycli -uroot -ppwd -h localhost -P3307`
