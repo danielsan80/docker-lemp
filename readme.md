@@ -6,21 +6,25 @@ git clone git@github.com:matiux/DockerLemp.git
 git submodule update --init --recursive
 ```
 
-## Utilizzo
+##Entrare nei container
+* Per entrare nel container php: `./dc exec --user utente php bash`. Equivale a  `docker exec --it --user <GID/USER> <CONTAINER_ID>`
 
+## Utilizzo
 Lo script `dc` è una scorciatoia a `docker-compose`
 * `./dc` esegue `docker-compose ps`
 * `./dc up -d` eseguite il build e l'up dei containers mettendoli poi in backgroud
-* Per entrare nel container php: `./dc exec --user utente php bash`. Equivale a  `docker exec --it --user <GID/USER> <CONTAINER_ID>`
 * Collegarsi a mysql/mariadb con il client mysql `mycli`: `mycli -uroot -ppwd -h localhost -P3307`
 * Collegarsi a mysql/mariadb con il client mysql classico `mysql`: `mysql -uroot -ppwd -h127.0.0.1 -P3307` (di default il client mysql usa Unix sockets invece di TCP. Quindi bisogna specificare l'IP per esteso e non usare "localhost" perchè lo traduce in unix socket invece di tcp/ip). In alternativa si può fare: `mysql -uroot -p -P3306 -h ip_container`
 
 ## Gestione Registry per le proprie immagini
 * Creare il repo su docker hub (https://hub.docker.com/)
-* Taggare durante il build: `docker build -t matiux/php7.1-fpm-nginx:latest .`
-* Taggare dopo il build: `docker tag df892c128f74  matiux/php7.1-fpm-nginx:latest`
-* Push: `docker push matiux/php7-fpm-nginx:7.1`
-* Pullare l'immagine sul repo: `docker pull matiux/php7.1-fpm-nginx:latest`
+* Taggare durante il build: `docker build -t matiux/php:fpm-7.1-2.0.0 .`
+* Taggare dopo il build: `docker tag <id_immagine> matiux/php:fpm-7.1-2.0.0`
+* E' anche possibile aggiungere più tag contemporaneamente: `docker build -t matiux/php:fpm-7.1-2.0.0 -t latest .`
+* Se un'immagine ha più tag è possibile rimuovere un tag: `docker rmi matiux/php-fpm-7.1:v2.0.0`. In questo modo non verrà cancellata l'immagine ma solo il tag
+* Rinominare un tag: `docker tag <id_immagine> <nuovo_tag>`. Es. `docker tag b7bb3ad94649 matiux/php:7.1-fpm-2.0.0`
+* Push: `docker push matiux/php:fpm-7.1-2.0.0`
+* Pullare l'immagine sul repo: `docker pull matiux/php:fpm-7.1-2.0.0`
 
 ## Comandi utili
 * Pulizia totale: `docker system prune -a`

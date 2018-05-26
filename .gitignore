@@ -1,6 +1,8 @@
-*.log
+docker/log
+!docker/log/.gitkeep
 docker/data/*/*
 !docker/data/*/.gitkeep
 .env
 .idea
 web
+public
