@@ -2,11 +2,11 @@ version: '3'
 
 services:
   nginx:
-    # image: matiux/nginx:symfony-2.0.0
-    build:
-      context: ./docker/nginx/Php
-      args:
-        - FRAMEWORK=${FRAMEWORK}
+    image: matiux/nginx:symfony-2.0.0
+    # build:
+    #   context: ./docker/nginx/Php
+    #   args:
+    #     - FRAMEWORK=${FRAMEWORK}
     ports:
       - '8080:80'
     depends_on:
@@ -15,8 +15,8 @@ services:
       - ./docker/logs/nginx/:/var/log/nginx
       - ./:/var/www/app
   php:
-    build: ./docker/php/7.1-fpm
-    # image: matiux/php:7.1-fpm-2.0.0
+    #build: ./docker/php/7.1-fpm
+    image: matiux/php:7.1-fpm-2.0.0
     tty: true # -t option in docker
     stdin_open: true # -i option in docker
     hostname: il_tuo_host_name
@@ -35,18 +35,18 @@ services:
       # - MYSQL_DATABASE=app_db
     ports:
       - '3307:3306'
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin
-  #   ports:
-  #     - "8081:80"
-  #   depends_on:
-  #     - servicedb
-  #   environment:
-  #     - PMA_HOST=servicedb
-  # memcached:
-  #   image: memcached:latest
-  #   volumes:
-  #     - ./docker/data/memcached:/var/lib/memcached
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    depends_on:
+      - servicedb
+    environment:
+      - PMA_HOST=servicedb
+  memcached:
+    image: memcached:latest
+    volumes:
+      - ./docker/data/memcached:/var/lib/memcached
   # redis_db:
   #   image: redis:alpine
   #   #command: redis-server --requirepass redis
