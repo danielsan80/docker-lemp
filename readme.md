@@ -1,4 +1,5 @@
-# Ambiente LEMP per applicazioni PHP
+Ambiente LEMP per applicazioni PHP
+==================================
 
 ## Clone
 ```
@@ -6,7 +7,7 @@ git clone git@github.com:matiux/DockerLemp.git
 git submodule update --init --recursive
 ```
 
-##Entrare nei container
+## Entrare nei container
 * Per entrare nel container php: `./dc exec --user utente php bash`. Equivale a  `docker exec --it --user <GID/USER> <CONTAINER_ID>`
 
 ## Utilizzo
