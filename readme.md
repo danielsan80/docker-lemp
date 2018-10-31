@@ -50,11 +50,6 @@ Lo script `dc` è una scorciatoia a `docker-compose`
    ./dc exec app php --info | grep remote_enable
    ```
 
-## Link utili:
-* https://docs.docker.com/compose/compose-file/#service-configuration-reference
-* https://docs.docker.com/engine/reference/builder/#using-arg-variables
-* https://git-scm.com/book/en/v2/Git-Tools-Submodules
-
 ## Redis
 
 * Dato che l'immagine è alpine, non c'è bash. Usare quindi: `docker exec -it redis sh`
@@ -66,3 +61,11 @@ $client = RedisAdapter::createConnection(
    'redis://redis_db:6379'
 );
 ```
+
+## Link utili:
+* https://docs.docker.com/compose/compose-file/#service-configuration-reference
+* https://docs.docker.com/engine/reference/builder/#using-arg-variables
+* https://git-scm.com/book/en/v2/Git-Tools-Submodules
+
+## Git submodules
+ * https://stackoverflow.com/a/5828396/6459288

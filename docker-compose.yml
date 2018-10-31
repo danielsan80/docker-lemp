@@ -31,7 +31,7 @@ services:
     restart: always
     volumes:
       - app_database:/var/lib/mysql
-      - ./docker/database/custom.cnf:/etc/mysql/conf.d/custom.cnf
+      - ./docker/database/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=app_db

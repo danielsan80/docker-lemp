@@ -1,1 +1,0 @@
-zend_extension=/var/lib/docker/overlay2/9995a40864d019229799367b8b360e1c8c9f3d9da46deb72eadd503165034cf1/diff/usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebug.so
