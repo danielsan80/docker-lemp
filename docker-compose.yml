@@ -13,22 +13,22 @@ services:
       - php
     volumes:
       - ./:/var/www/app
-      - ./docker/nginx/symfony-3.conf:/etc/nginx/conf.d/default.conf
-      - ./docker/logs/nginx/:/var/log/nginx
+      - ./docker/nginx/symfony-4.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/data/logs/nginx/:/var/log/nginx
       #- ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
  
   php:
-    #image: matiux/php:7.1-fpm-2.0.0
-    build: ./docker/php/7.2-fpm
+    build:
+      context: ./docker/php/alpine/7.2.11-fpm/base
+      dockerfile: Dockerfile
     hostname: app_hostname
     volumes:
       - ./:/var/www/app
-    environment:
-      - APP_ENV=${APP_ENV}
+      - ./docker/data/shell_history:/home/utente/shell_history
 
   database:
     image: mysql:5.7
-    restart: always
+    # restart: always
     volumes:
       - app_database:/var/lib/mysql
       - ./docker/database/mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
@@ -39,14 +39,14 @@ services:
       - '3307:3306'
     command: mysqld --sql_mode="" #Per mysql, non serve per mariadb
   
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin
-  #   ports:
-  #     - "8081:80"
-  #   depends_on:
-  #     - database
-  #   environment:
-  #     - PMA_HOST=database
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    depends_on:
+      - database
+    environment:
+      - PMA_HOST=database
 
   # adminer:
   #   image: adminer
@@ -54,11 +54,10 @@ services:
   #   ports:
   #     - 8081:8080
 
-  # servicememcached:
-  #   image: memcached:latest
-  #   volumes:
-  #     # - ./docker/data/memcached:/var/lib/memcached
-  #     - app_cache:/var/lib/memcached
+  servicememcached:
+    image: memcached:latest
+    volumes:
+      - app_cache:/var/lib/memcached
   
   # redis_db:
   #   image: redis:alpine

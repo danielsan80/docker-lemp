@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  php:
+    build:
+      args:
+        GITHUB_TOKEN: bb7b05f5e4cbf0cbe5d66b127f8f842cb315924a

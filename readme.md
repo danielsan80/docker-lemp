@@ -9,6 +9,8 @@ git submodule update --init --recursive
 
 ## Entrare nei container
 * Per entrare nel container php: `./dc exec --user utente php bash`. Equivale a  `docker exec --it --user <GID/USER> <CONTAINER_ID>`
+* `docker exec -it php /bin/ash` se usiamo alpine
+* `docker exec -it php /bin/zsh` se usiamo zsh
 
 ## Utilizzo
 Lo script `dc` è una scorciatoia a `docker-compose`
